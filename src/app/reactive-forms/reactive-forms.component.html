@@ -1,0 +1,39 @@
+<div class="main-container text-center">
+    <h1 class="p-5 text-xl">
+        Reactive Form
+    </h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div >
+            <label class="" for="">Username</label>
+            <br>
+            <input class="border mx-3 rounded"  
+            type="text" formControlName = "username">
+            <br>
+            <span class="text-rose-600 text-xs" 
+            *ngIf = "username && username.invalid && username.touched ">* This field is required.</span>
+        </div>
+        <div >
+            <label class="" for="">Email</label>
+            <br>
+            <input class="border mx-3 rounded"  
+            type="text" formControlName = "email">
+            <br>
+            <span class="text-rose-600 text-xs" 
+            *ngIf = "email && email.invalid && email.touched ">* Not proper email format</span>
+        </div>
+        <div>
+            <label for="">Password</label>
+            <br>
+            <input class="border mx-3 rounded"  
+            type="password" formControlName = "password">
+            <br>
+            <span class="text-rose-600 text-xs" 
+            *ngIf = "password && password.invalid && password.touched ">* This field is required.</span>
+        </div>
+        <div>
+            <button [disabled]="loginForm.invalid" class="mt-3 p-1 rounded bg-gray-500" type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
