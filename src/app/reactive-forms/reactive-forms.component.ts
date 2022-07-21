@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FirebaseServiceService } from '../firebase-service.service';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -7,8 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reactive-forms.component.css']
 })
 export class ReactiveFormsComponent implements OnInit {
-  constructor() { }
-
+  isSignedIn = false;
+  constructor(public firebaseService : FirebaseServiceService) { }
+ 
   loginForm = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -20,7 +22,7 @@ export class ReactiveFormsComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.minLength(6),
-      Validators.maxLength(8),
+      Validators.maxLength(12 ),
       Validators.required
     ])
   })
@@ -42,7 +44,30 @@ export class ReactiveFormsComponent implements OnInit {
     //alert("Success.")
   }
 
+ 
+  
   ngOnInit(): void {
-  }
+        if(localStorage.getItem('user')!==null)
+        this.isSignedIn = true
+        else
+        this.isSignedIn = false
+      }
+    
+      async onSignup(email:string,password:string){
+        await this.firebaseService.signup(email,password)
+        if(this.firebaseService.isLoggedIn)
+        this.isSignedIn = true
+      }
+    
+      async onSignin(email:string,password:string){
+        await this.firebaseService.signin(email,password)
+        if(this.firebaseService.isLoggedIn)
+        this.isSignedIn = true
+      }
+    
+      handleLogout(){
+        this.isSignedIn = false
+      }
+    
 
 }

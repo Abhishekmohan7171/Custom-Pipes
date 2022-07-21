@@ -2,8 +2,8 @@
     <h1 class="p-5 text-xl">
         Reactive Form
     </h1>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <div >
+    <form [formGroup]="loginForm" ngSubmit="login()">
+        <div>
             <label class="" for="">Username</label>
             <br>
             <input class="border mx-3 rounded"  
@@ -16,7 +16,7 @@
             <label class="" for="">Email</label>
             <br>
             <input class="border mx-3 rounded"  
-            type="text" formControlName = "email">
+            type="text" formControlName = "email" #emailSignup>
             <br>
             <span class="text-rose-600 text-xs" 
             *ngIf = "email && email.invalid && email.touched ">* Not proper email format</span>
@@ -25,13 +25,14 @@
             <label for="">Password</label>
             <br>
             <input class="border mx-3 rounded"  
-            type="password" formControlName = "password">
+            type="password" formControlName = "password" #passwordSignup>
             <br>
             <span class="text-rose-600 text-xs" 
             *ngIf = "password && password.invalid && password.touched ">* This field is required.</span>
         </div>
         <div>
-            <button [disabled]="loginForm.invalid" class="mt-3 p-1 rounded bg-gray-500" type="submit">
+            <button [disabled]="loginForm.invalid" class="mt-3 p-1 rounded bg-gray-500 text-white" 
+            type="submit" (click)="onSignup(emailSignup.value,passwordSignup.value)">
                 Submit
             </button>
         </div>
