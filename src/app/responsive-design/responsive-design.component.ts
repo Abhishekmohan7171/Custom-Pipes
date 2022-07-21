@@ -13,6 +13,7 @@ export class ResponsiveDesignComponent implements OnInit {
   today = Date()
   name = "abhishek"
   email = "abhishekmohan7171@yahoo.com"
+  fullName = "Abhishek Mohan"
 
   capString(item:String){
     return item.toUpperCase()

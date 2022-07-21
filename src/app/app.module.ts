@@ -12,6 +12,7 @@ import { ChildComponent } from './child/child.component';
 import { ResponsiveDesignComponent } from './responsive-design/responsive-design.component';
 import { UsdInrPipe } from './pipes/usd-inr.pipe';
 import { MaskEmailPipe } from './pipes/mask-email.pipe';
+import { FirstLetterPipe } from './pipes/first-letter.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MaskEmailPipe } from './pipes/mask-email.pipe';
     ChildComponent,
     ResponsiveDesignComponent,
     UsdInrPipe,
-    MaskEmailPipe
+    MaskEmailPipe,
+    FirstLetterPipe
   ],
   imports: [
     BrowserModule,
