@@ -15,6 +15,8 @@ export class FirstLetterPipe implements PipeTransform {
 		return final
 	}
 
+	//acronym == null ? return fullname : return acronym.join('');
+
 	//let acronym = fullName.match(/\b(\w)/g).join() ?? fullName;
 	//console.log(fullName)
    	//return fullName;	
