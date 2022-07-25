@@ -40,7 +40,9 @@ export class ResponsiveDesignComponent implements OnInit {
     setTimeout(()=>{
       observer.next('15 mins ago.')
     },10000)
-	},)
+	})
+
+  //multiple susbscriptions
   this.data.subscribe((res:any)=>{
     this.activeStatus = res;
   })
