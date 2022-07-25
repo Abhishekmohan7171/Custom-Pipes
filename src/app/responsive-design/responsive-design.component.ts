@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./responsive-design.component.css']
 })
 export class ResponsiveDesignComponent implements OnInit {
-
+  data:any;
+  error:any
   constructor() { }
 
   title = "Angular Pipes"
@@ -16,15 +17,15 @@ export class ResponsiveDesignComponent implements OnInit {
   email = "abhishekmohan7171@yahoo.com"
   fullName = "Abhishek Mohan"
 
-  activeStatus:any = "now.";
-  error:any
+  activeStatus:any = "now";
+  activeStatus1:any = "now";
 
   capString(item:String){
     return item.toUpperCase()
   }
 
   ngOnInit(): void {
-	new Observable((observer)=>{
+	this.data = new Observable((observer)=>{
 		setTimeout(()=>{
 			observer.next('1 min ago.')
 		},2000);
@@ -33,15 +34,19 @@ export class ResponsiveDesignComponent implements OnInit {
 		},4000);
 		setTimeout(()=>{
 			observer.next('10 mins ago.')
-      observer.error('Oops! Something went wrong!')
-		},8000);
+      //observer.complete(); //tried complete method
+      //observer.error("Oops, Somethings Wrong!")
+		},7000);
     setTimeout(()=>{
       observer.next('15 mins ago.')
-    },12000)
-	}).subscribe((res: any)=>{
-    this.activeStatus = res
-  }, (err)=>{
-    this.error = err;
+    },10000)
+	},)
+  this.data.subscribe((res:any)=>{
+    this.activeStatus = res;
+  })
+
+  this.data.subscribe((res:any)=>{
+    this.activeStatus1 = res;
   })
   }
 
