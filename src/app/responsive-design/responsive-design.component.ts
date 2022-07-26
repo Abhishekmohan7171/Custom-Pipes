@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-responsive-design',
@@ -24,32 +24,62 @@ export class ResponsiveDesignComponent implements OnInit {
     return item.toUpperCase()
   }
 
+  // Of Operator
+  // studentList = ["Mark","Lisa","Ann"];
+  // students: Observable<String[]> = of(this.studentList)
+  // nameOf: Observable<String> = of('Abhishek')
+
+  // student = {
+  //   id:1,
+  //   name:"Abhi",
+  //   age:22
+  // }
+
+  // studentobj$: Observable<any> = of(this.student)
+
   ngOnInit(): void {
-	this.data = new Observable((observer)=>{
-		setTimeout(()=>{
-			observer.next('1 min ago.')
-		},2000);
-		setTimeout(()=>{
-			observer.next('5 mins ago.')
-		},4000);
-		setTimeout(()=>{
-			observer.next('10 mins ago.')
-      //observer.complete(); //tried complete method
-      //observer.error("Oops, Somethings Wrong!")
-		},7000);
-    setTimeout(()=>{
-      observer.next('15 mins ago.')
-    },10000)
-	})
 
-  //multiple susbscriptions
-  this.data.subscribe((res:any)=>{
-    this.activeStatus = res;
-  })
+  //OBSERVABLE
+	// this.data = new Observable((observer)=>{
+	// 	setTimeout(()=>{
+	// 		observer.next('1 min ago.')
+	// 	},2000);
+	// 	setTimeout(()=>{
+	// 		observer.next('5 mins ago.')
+	// 	},4000);
+	// 	setTimeout(()=>{
+	// 		observer.next('10 mins ago.')
+  //     //observer.complete(); //tried complete method
+  //     //observer.error("Oops, Somethings Wrong!")
+	// 	},7000);
+  //   setTimeout(()=>{
+  //     observer.next('15 mins ago.')
+  //   },10000)
+	// })
 
-  this.data.subscribe((res:any)=>{
-    this.activeStatus1 = res;
-  })
+  // //multiple susbscriptions
+  // this.data.subscribe((res:any)=>{
+  //   this.activeStatus = res;
+  // })
+
+  // this.data.subscribe((res:any)=>{
+  //   this.activeStatus1 = res;
+  // })
+
+  // Subscribing of operators above
+  // this.students.subscribe(data => {
+  //   console.log(data)
+  // })
+
+  // this.nameOf.subscribe(data =>{
+  //   console.log(data)
+  // })
+
+  // this.studentobj$.subscribe(data => {
+  //   console.log(data)
+  // })
+
+
   }
 
 }
