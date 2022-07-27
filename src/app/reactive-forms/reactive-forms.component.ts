@@ -27,6 +27,7 @@ export class ReactiveFormsComponent implements OnInit {
     ])
   })
 
+/*
   get username(){
     return this.loginForm.get('username')
   }
@@ -42,32 +43,9 @@ export class ReactiveFormsComponent implements OnInit {
   login(){
     console.warn(this.loginForm.value)
     //alert("Success.")
-  }
+  } */
 
  
   
-  ngOnInit(): void {
-        if(localStorage.getItem('user')!==null)
-        this.isSignedIn = true
-        else
-        this.isSignedIn = false
-      }
-    
-      async onSignup(email:string,password:string){
-        await this.firebaseService.signup(email,password)
-        if(this.firebaseService.isLoggedIn)
-        this.isSignedIn = true
-      }
-    
-      async onSignin(email:string,password:string){
-        await this.firebaseService.signin(email,password)
-        if(this.firebaseService.isLoggedIn)
-        this.isSignedIn = true
-      }
-    
-      handleLogout(){
-        this.isSignedIn = false
-      }
-    
-
+  ngOnInit(): void{}
 }
