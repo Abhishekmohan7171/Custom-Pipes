@@ -4,6 +4,8 @@ import {
   AngularFireDatabase,
   AngularFireList,
 } from '@angular/fire/compat/database';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-responsive-design',
@@ -92,10 +94,17 @@ export class ResponsiveDesignComponent implements OnInit {
     console.log(this.users);
     */
 
-
-    this.usersRef = this.db.list('/login');
+	/*	
+	this.usersRef = this.db.list('/login');
     this.users = this.usersRef.valueChanges();
     this.users.subscribe((res:any) => console.log(res));
+    */
+
+	this.usersRef = this.db.list('/login/-N1IPJx2vQcXqh42LDiC');
+    this.users = this.usersRef.valueChanges();
+    this.users.pipe(map((user:any)=>{
+		console.log(user)	
+	})).subscribe()
    
   }
 }

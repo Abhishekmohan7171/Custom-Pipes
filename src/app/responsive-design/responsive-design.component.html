@@ -1,6 +1,5 @@
 <div class="main-container">
-
-    <!-- <div class="one">
+  <!-- <div class="one">
         One
     </div>
     <div class="two">
@@ -9,7 +8,7 @@
     <div class="three">
         three
     </div> -->
-    <!-- <div class="four">
+  <!-- <div class="four">
         four
     </div>
     <div class="five">
@@ -18,8 +17,8 @@
     <div class="six">
         six
     </div> -->
-    <!-- trying out pipes -->
-    <!--{{title | uppercase}}
+  <!-- trying out pipes -->
+  <!--{{title | uppercase}}
     {{title | lowercase}}
     {{title}}
     {{today | date}}
@@ -30,13 +29,16 @@
 	{{ fullName | firstLetter }}
 	{{ fullName }} -->
 
-	<!--<h2 class="text-xl pl-10">This user is active {{activeStatus}}</h2>
+  <!--<h2 class="text-xl pl-10">This user is active {{activeStatus}}</h2>
     <h2>{{error}}</h2>
 	<h2 class="text-xl pl-10">{{activeStatus1}}</h2>-->
-
-	<h1>Getting data from Firebase</h1> 
-	<br>
-	<h1 *ngFor="let user of users | async">{{user | json }}</h1>
+  <div flex flex-column>
+    <h1 class="text-xl">Getting data from Firebase</h1>
+    <br />
+    <div>
+      <h1 *ngFor="let user of users | async">{{user | json }}</h1>
+    </div>
+  </div>
 </div>
 
 <!-- <div class="">
